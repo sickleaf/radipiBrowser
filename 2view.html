@@ -1,0 +1,104 @@
+
+<!-- ref  http://sstea.blog.jp/raspi/smartphone.html -->
+
+<html>
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta http-equiv="Content-Script-Type" content="text/javascript" />
+                <meta http-equiv="Content-Style-Type" content="text/css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+                <script type="text/javascript">
+
+		$( function() {
+			$( "[type=button]" ).on("click",
+				function() {
+					$.ajax( {
+						type: "POST",
+						url: Radipi.phpFileName,
+						data: "cmd=" + Radipi.scriptPath + Radipi.getMp3NameScript,
+						success: function( data ) {
+							var dt = data;
+							$( '#presentID' ).text(dt);
+						},
+						error: function( data ) {
+							$( '#presentID' ).txt("read_NG");
+						}
+					} );
+				}
+			);
+		} );
+		
+		
+	        </script>
+
+	        <title>control audio</title>
+        </head>
+
+        <body onLoad="loadDateList();">
+        <center>
+
+		<!--
+		<form name="gd" style="width:90%">
+			<input type="button" value="gdrive" style="width:35%; height:9%; font-size:30px"   onclick="playGdrive()"  />
+			<input type="checkbox" name="filesize" value="true" id="length">
+				<label for="length">長さフィルタ</label>
+			<input type="checkbox" name="isShuffle" value="true" id="shuf">
+				<label for="shuf">シャッフル</label>
+			<select name="fnfil" id="numfilter">
+				<option value="100">曲数[100]</option>
+				<option value="10">10</option>
+				<option value="3">3</option>
+			</select>
+			<select id="recordID"></select>
+			
+			<select id="datefilter">
+				<option value="">日付[none]</option>
+			</select>
+
+		</form>
+		</br>
+		-->
+
+
+		<form name="musicform" style="width:90%">
+			<input type="button" value="playmusic" style="width:55%; height:9%; font-size:30px"   onclick="playRecordList('dirID')"  />
+
+			<select id="dirID"></select>
+		</form>
+
+		</br>
+
+                <input type="button" value="一時停止" style="width:22.2%; height:9%; font-size:30px" /   onclick="killplayer(' STOP ')"  >
+                <input type="button" value="volume[-]" style="width:22.5%; height:9%; font-size:30px"    onclick="setVolume('-',5)"  />
+                <input type="button" value="volume[+]" style="width:22.5%; height:9%; font-size:30px"    onclick="setVolume('+',5)"  />
+                <input type="button" value="再開" style="width:22.2%; height:9%; font-size:30px"    onclick="killplayer(' CONT ')"  />
+
+
+                <input type="button" value="スキップ" style="width:45%; height:9%; font-size:30px"    onclick="killplayer(' INT ')"  />
+                <input type="button" value="切断"  style="width:45%; height:9%; font-size:30px"    onclick="killplayer(' TERM ')" />
+
+		</br>
+		<div style="font-size:30px;">
+			【Directory】 <span id="presentDirID">none</span>	<br>
+			【Name】 <span id="presentID">none</span>	<br>
+		<a href="./2radiko.html">switch to radiko</a>
+		</div>
+
+		<script type="text/javascript" src="js/config.js"> </script>
+		<script type="text/javascript" src="js/radipiCommon.js"> </script>
+		<script type="text/javascript" src="js/4view.js"> </script> 
+
+		<script type="text/javascript"> 
+			window.addEventListener('DOMContentLoaded',function(){
+				readConfig();						//	config.js
+						//elementID, Radipi.[csv]ListInfo, optionValue, optionText
+				loadConfig("dirID","dirListInfo","dirValue","dirText");	
+				document.getElementById(Radipi.nowplayingID).innerHTML = "onload!";
+			})
+		</script>
+
+        </body>
+</html>
+
+
