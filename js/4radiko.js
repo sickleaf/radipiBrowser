@@ -196,6 +196,6 @@ function getStreamingRandom(dropdownListID){
 	var listIndex = Math.floor( Math.random() * listLength );
 	var selectedText = listName.options[listIndex].text;
 
-	listName.value= listName.options[listIndex].value;
-	playStreamURL(selectedText);
+	var listValue = listName.options[listIndex].value;
+	playStreamURL(listValue);
 }

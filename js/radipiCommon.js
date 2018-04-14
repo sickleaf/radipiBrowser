@@ -43,14 +43,13 @@ function doCommand(command){
 }
 
 function setVolume(sign,value) {
-        doCommand(Radipi.scriptPath + Radipi.volumeScript + " " + sign + " " + value);
+        doCommand(Radipi.scriptPath + Radipi.volumeScript + " " + value + " " + sign);
 }
 
 
 function killplayer(sig) {
 	var killcommand = Radipi.scriptPath + Radipi.killScript + " " + sig; 
         doCommand(killcommand);
-	document.getElementById(Radipi.nowplayingID).innerHTML="none";
 }
 
 function generateDateString(offset){
