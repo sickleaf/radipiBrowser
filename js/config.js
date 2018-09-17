@@ -18,6 +18,7 @@ Radipi.radikoScript = "playradiko.sh";
 Radipi.streamingScript= "playStreaming.sh";
 Radipi.playMp3Script = "playLocalfile.sh";
 Radipi.getMp3NameScript = "getMp3Name.sh";
+Radipi.fmScript= "playFM.sh";
 
 Radipi.nowplayingID = "presentID";
 Radipi.nowplayingDirID = "presentDirID";
@@ -30,6 +31,8 @@ Radipi.streamingText = "streamingText";
 Radipi.streamingValue = "streamingValue";
 Radipi.dirText = "dirText";
 Radipi.dirValue = "dirValue";
+Radipi.fmText = "fmName";
+Radipi.fmValue = "fmFreq";
 
 Radipi.timefreePrefix = "time";
 
@@ -42,4 +45,5 @@ function readConfig(){
 	Radipi.areaListInfo = getFile("config/areaList.csv");
 	Radipi.streamingListInfo = getFile("config/streamingList.csv");
 	Radipi.dirListInfo = getFile("config/dirList.csv");
+	Radipi.fmListInfo = getFile("config/fmList.csv");
 }
