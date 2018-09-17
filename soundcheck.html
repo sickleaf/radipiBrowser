@@ -1,0 +1,49 @@
+
+<!-- ref  http://sstea.blog.jp/raspi/smartphone.html -->
+
+<html>
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta http-equiv="Content-Script-Type" content="text/javascript" />
+                <meta http-equiv="Content-Style-Type" content="text/css" />
+
+	        <title>sound check</title>
+        </head>
+
+        <body>
+        <center>
+
+
+                <input type="button" value="Test-1" style="width:45.5%; height:25%; font-size:30px"    onclick="playTestSound('/home/expi/python_games/match1.wav')"  />
+                <input type="button" value="Test-2" style="width:45.5%; height:25%; font-size:30px"    onclick="playTestSound('/home/expi/python_games/match2.wav')"  />
+
+		</br>
+
+		<input type="button" value="Test-youtube&#13;&#10;(wait few seconds...)" style="width:91%; height:25%; font-size:30px"  onclick="playTestSound('https://www.youtube.com/watch?v=B2D3lGOrdVQ')"  />
+
+		</br>
+
+                <input type="button" value="volume[-]" style="width:30.3%; height:15%; font-size:30px"    onclick="setVolume('-',5)"  />
+                <input type="button" value="volume[+]" style="width:30.3%; height:15%; font-size:30px"    onclick="setVolume('+',5)"  />
+                <input type="button" value="stop sound" style="width:30.3%; height:15%; font-size:30px"    onclick="killplayer('TERM')"  />
+
+
+
+		</br>
+		<a href="./2radiko.html">[streaming]</a>
+		<a href="./2view.html">[localfile]</a>
+		<a href="./2fm.html">[fm]</a>
+
+		<script type="text/javascript" src="js/config.js"> </script>
+		<script type="text/javascript" src="js/radipiCommon.js"> </script>
+
+		<script type="text/javascript"> 
+			function playTestSound(fullPath){
+				doCommand(Radipi.mpvCommand + fullPath);
+			}
+		</script>
+
+        </body>
+</html>
+
+
