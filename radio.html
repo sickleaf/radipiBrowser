@@ -1,0 +1,52 @@
+
+<!-- ref  http://sstea.blog.jp/raspi/smartphone.html -->
+
+<html>
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta http-equiv="Content-Script-Type" content="text/javascript" />
+                <meta http-equiv="Content-Style-Type" content="text/css" />
+
+	        <title>sound check</title>
+        </head>
+
+        <body>
+        <center>
+
+
+                <input type="button" value="optalkS" style="width:30.3%; height:25%; font-size:30px"    onclick="playRadio('/home/radipi/rFilter/optalkS','/tmp/vpm.socket',5,'true')"  />
+                <input type="button" value="optalkA" style="width:30.3%; height:25%; font-size:30px"    onclick="playRadio('/home/radipi/rFilter/optalkA','/tmp/vpm.socket',5,'true')"  />
+                <input type="button" value="arecord" style="width:30.3%; height:25%; font-size:30px"    onclick="playRadio('/home/radipi/rFilter/corner/ij954_arecord','/tmp/vpm.socket',2,'false')"  />
+
+		</br>
+
+                <input type="button" value="volume[+]" style="width:45.5%; height:15%; font-size:30px"    onclick="setVolume('+',5)"  />
+                <input type="button" value="next file" style="width:45.5%; height:15%; font-size:30px"    onclick="killplayer('TERM')"  />
+
+		</br>
+
+                <input type="button" value="volume[-]" style="width:45.5%; height:15%; font-size:30px"    onclick="setVolume('-',5)"  />
+                <input type="button" value="STOP" style="width:45.5%; height:15%; font-size:30px"    onclick="killplayer('TERM')"  />
+
+		</br>
+		<a href="./2radiko.html">[streaming]</a>
+		<a href="./2view.html">[localfile]</a>
+		<a href="./2fm.html">[fm]</a>
+
+		<script type="text/javascript" src="js/config.js"> </script>
+		<script type="text/javascript" src="js/radipiCommon.js"> </script>
+
+		<script type="text/javascript"> 
+			Radipi.playmp3="playmp3.sh";
+
+			function playRadio(filePath,vpmPath,fileNum,boolValue){
+				killplayer('KILL');
+				doCommand(Radipi.sleepCommand + " && " + Radipi.scriptPath + Radipi.playmp3 + " " +  filePath + " " + vpmPath + " " + fileNum + " " + boolValue);
+				//doCommand(Radipi.scriptPath + Radipi.killScript + " KILL " + " && " + Radipi.scriptPath + Radipi.playmp3 + " " +  filePath + " " + vpmPath + " " + fileNum + " " + boolValue);
+			}
+		</script>
+
+        </body>
+</html>
+
+
